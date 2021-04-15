@@ -25,6 +25,6 @@ public class HelloController {
 
 	@GetMapping("/say03")
 	public String sayHelloDemo03(User user) throws Exception {
-		return helloTransport.sayHelloDemo03(user);
+		return helloTransport.sayHelloDemo03(user) ;
 	}
 }
