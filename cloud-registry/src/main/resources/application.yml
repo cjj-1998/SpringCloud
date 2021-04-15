@@ -1,0 +1,24 @@
+########## 配置项目启动端口号
+server:
+  port: 9999
+spring:
+  ########## 配置项目应用名
+  application:
+    name: cloud-registry
+  ########## 开启 Spring Boot 对于 Bean 的重写机制
+  main:
+    allow-bean-definition-overriding: true
+########## 配置 Eureka Server 信息
+eureka:
+  ########## 配置 Eureka Server 端主机名
+  instance:
+    hostname: localhost
+  ########## 配置 Eureka 作为 Client 的特征
+  client:
+    ########## 由于本项目是作为 Eureka Server 端，那么就禁止 Server 项目将自己的服务注册到注册中心
+    register-with-eureka: false
+    ########## 对于一般项目来说，只需要一个注册中心，那么就不需要本注册中心去其他注册中心发现服务
+    fetch-registry: false
+    ########## 暴露注册中心注册地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka

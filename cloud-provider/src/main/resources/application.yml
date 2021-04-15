@@ -1,0 +1,16 @@
+########## 配置项目启动端口号
+server:
+  port: 8899
+spring:
+  ########## 配置项目应用名
+  application:
+    name: cloud-provider
+  ########## 配置项目允许启用 Bean 的重写机制
+  main:
+    allow-bean-definition-overriding: true
+########## 配置作为 Eureka Client 端的信息
+eureka:
+  client:
+    ########## 配置 Eureka Server 的连接地址
+    service-url:
+      defaultZone: http://localhost:9999/eureka/
