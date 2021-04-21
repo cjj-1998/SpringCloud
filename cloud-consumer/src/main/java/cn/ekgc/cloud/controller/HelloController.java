@@ -8,11 +8,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 @RestController("helloController")
 @RequestMapping("/hello")
 public class HelloController {
 	@Autowired
+	private HttpSession session;
+	@Autowired
+	private HttpServletResponse response;
+	@Autowired
 	private HelloTransport helloTransport;
+
+	@GetMapping("/login")
+	public String say() throws Exception {
+		session.setAttribute("user", "陈俊杰");
+		return "登陆成功！";
+	}
+
 	@GetMapping("/say01")
 	public String sayHelloDemo01() throws Exception {
 		return helloTransport.sayHelloDemo01();
